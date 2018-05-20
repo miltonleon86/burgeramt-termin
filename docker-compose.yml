@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  php:
+    image: php
+    volumes:
+      - ./:/usr/share/burgeramt-termin  
+    links:
+      - mysql:db
+    command: tail -f /dev/null        
+        
+  mysql:
+    image: hypriot/rpi-mysql        
+    restart: always
+    volumes:
+      - ./data/mysql:/var/lib/mysql        
+    environment: 
+      MYSQL_ROOT_PASSWORD: my_casa
