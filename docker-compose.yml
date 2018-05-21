@@ -2,9 +2,9 @@ version: '2'
 
 services:
   php:
-    image: php
+    build: ./
     volumes:
-      - ./:/usr/share/burgeramt-termin  
+      - ./:/usr/share/burgeramt-termin
     links:
       - mysql:db
     command: tail -f /dev/null        
@@ -13,6 +13,8 @@ services:
     image: hypriot/rpi-mysql        
     restart: always
     volumes:
-      - ./data/mysql:/var/lib/mysql        
+      - ./data/mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
     environment: 
       MYSQL_ROOT_PASSWORD: my_casa

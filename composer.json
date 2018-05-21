@@ -1,0 +1,16 @@
+{
+  "name": "miltonleon/burgeramt-termin",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Milton Leon",
+      "email": "miltonleon86@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Burgeramt\\": "src"
+    }
+  }
+
+}
