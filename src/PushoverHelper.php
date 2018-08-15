@@ -15,21 +15,24 @@ class PushoverHelper
     const PUSHOVER_URL = 'https://api.pushover.net/1/messages.json';
 
     /** Group Key */
-    const GROUP_KEY = '';
+    private $groupKey;
 
     /** App Key */
-    const APP_PUSHOVER_TOKEN = '';
+    private $appPushoverToken;
 
-    /**
-     * @param $msg
-     */
+    public function __construct()
+    {
+	    $this->groupKey = getenv('GROUP_KEY');
+	    $this->appPushoverToken = getenv('APP_PUSHOVER_TOKEN');
+    }
+     
     public function sendPushoverNotification($msg)
     {
         curl_setopt_array($ch = curl_init(), array(
             CURLOPT_URL => static::PUSHOVER_URL,
             CURLOPT_POSTFIELDS => array(
-                'token'   => static::APP_PUSHOVER_TOKEN,
-                'user'    => static::GROUP_KEY,
+                'token'   => $this->appPushoverToken,
+                'user'    => $this->groupKey,
                 'html'    => 1,
                 'message' => $msg,
             ),

@@ -4,10 +4,11 @@ services:
   php:
     build: ./
     volumes:
-      - ./:/usr/share/burgeramt-termin
+      - ./:/run/php/
     links:
       - mysql:db
-    command: tail -f /dev/null        
+    env_file:
+      - env/pushover        
         
   mysql:
     image: hypriot/rpi-mysql        
