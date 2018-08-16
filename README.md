@@ -1,7 +1,7 @@
 # burgeramt-termin
 
-Tu use this first zou need to create your env folder
-- on the root of the project mkdir env
+Tu use this first you need to create your env folder
+- on the root of the project mkdir env and inside
 - touch pushover 
 
 after that declare your env vars
