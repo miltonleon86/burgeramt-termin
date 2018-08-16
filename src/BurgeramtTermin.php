@@ -28,14 +28,18 @@ while (true) {
 	} else {
 		$count = substr_count($response, 'buchbar');
 		
-		if ($count > 6)
+		if ($count !== 6)
 		{
+		 
 			 $pushover->sendPushoverNotification('Found ' . $count . ' Times we where searching for 6');
+		} else {
+			echo 'Nothing Changed count = ' . $count;
+			echo PHP_EOL;
 		}
 		
 	}
 
-	sleep (10);
+	sleep (120);
 }
 
 curl_close($curl);
